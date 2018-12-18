@@ -38,6 +38,10 @@
 		  output.innerHTML = "<p>Locating…</p>";
 
 		  navigator.geolocation.getCurrentPosition(success, error);
+			
+		  if (navigator.vibrate) {
+		    navigator.vibrate(5000);
+		  }
 		}
 	</script>
 </body>
