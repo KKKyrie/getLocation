@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<title>键盘测试</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <style>
+    .body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+    }
+    .container {
+      border: 1px solid red;
+      position: fixed;
+      width: 98%;
+      height: 98%;
+    }
+    .input {
+      display: block;
+      width: 100%;
+      height: 40px;
+      border: 1px solid green;
+    }
+    .tail {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      color: red;
+    }
+    .fixed-tail {
+      position: fixed;
+      bottom: 0;
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <input type="text" class="input" />
+    <div class="tail">底</div>
+  </div>
+
+  <div class="fixed-tail">底</div>
+</body>
+
+</html>

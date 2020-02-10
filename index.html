@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>GetUrLocation</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-       	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
+
 <body>
 	<p><button onclick="geoFindMe()">Show my location</button></p>
 	<div id="out"></div>
 
 	<script>
 		function geoFindMe() {
-		  var output = document.getElementById("out");
+			var output = document.getElementById("out");
 
-		  if (!navigator.geolocation){
-		    output.innerHTML = "<p>您的浏览器不支持地理位置</p>";
-		    return;
-		  }
+			if (!navigator.geolocation) {
+				output.innerHTML = "<p>您的浏览器不支持地理位置</p>";
+				return;
+			}
 
-		  function success(position) {
-		    var latitude  = position.coords.latitude;
-		    var longitude = position.coords.longitude;
+			function success(position) {
+				var latitude = position.coords.latitude;
+				var longitude = position.coords.longitude;
 
-		    output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+				output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
 
-		    var img = new Image();
-		    img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+				var img = new Image();
+				img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
 
-		    output.appendChild(img);
-		  };
+				output.appendChild(img);
+			};
 
-		  function error() {
-		    output.innerHTML = "无法获取您的位置";
-		  };
+			function error() {
+				output.innerHTML = "无法获取您的位置";
+			};
 
-		  output.innerHTML = "<p>Locating…</p>";
+			output.innerHTML = "<p>Locating…</p>";
 
-		  navigator.geolocation.getCurrentPosition(success, error);
-			
-		  if (navigator.vibrate) {
-		    navigator.vibrate(5000);
-		  }
+			navigator.geolocation.getCurrentPosition(success, error);
+
+			if (navigator.vibrate) {
+				navigator.vibrate(5000);
+			}
 		}
 	</script>
 </body>
+
 </html>
